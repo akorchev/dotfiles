@@ -8,10 +8,11 @@ call vundle#rc()
 " let Vundle manage Vundle
 Bundle 'gmarik/vundle'
 
+Bundle 'tpope/vim-unimpaired'
 Bundle 'bufexplorer.zip'
 Bundle 'ervandew/supertab'
 Bundle 'vim-scripts/JavaScript-Indent'
-Bundle 'jgdavey/vim-railscasts'
+Bundle 'Railscasts-Theme-GUIand256color'
 Bundle 'mileszs/ack.vim'
 
 filetype indent plugin on
@@ -125,9 +126,6 @@ set nofoldenable
 
 "remove trailin whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
-
-"dont continue comments when pushing o/O
-set formatoptions-=o
 
 "replace word under cursor
 :nnoremap ,r :%s/\<<C-r><C-w>\>//g<Left><Left>
