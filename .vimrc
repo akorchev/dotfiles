@@ -20,15 +20,11 @@ filetype indent plugin on
 "mouse in terminal
 set mouse=a
 set ttymouse=xterm2
+set ttyfast
 
 "BufferExplorer
 nnoremap ,b :BufExplorer<CR>
 nnoremap ,n :%s/\r//g<CR>
-
-"Start in full screen
-if has('win32')
-    au GUIEnter * simalt ~x
-endif
 
 "hide the toolbar
 set guioptions-=T
@@ -42,16 +38,11 @@ set number
 "syntax highlighting
 syntax on
 
-"to avoid losing the colors
-autocmd BufEnter * :syntax sync fromstart
 set t_Co=256
 colorscheme railscasts
 
-"set the font
-set guifont=Consolas:h11
-
 "show white space
-:set list listchars=tab:»·,trail:·
+set list listchars=tab:»·,trail:·
 
 "tabs
 set tabstop=4
@@ -63,10 +54,10 @@ set expandtab
 set autoindent
 set smarttab
 
-"avoid swap, temp and backup files
-set nobackup
-set nowritebackup
-set noswapfile
+set backupdir=~/.vim/backup
+set directory=~/.vim/backup
+
+set lazyredraw
 
 "make backspace work like most other apps
 set backspace=indent,eol,start
@@ -118,9 +109,6 @@ set laststatus=2
 
 set hidden
 
-"use the tags file in the project root
-set tags=tags
-
 "no folding please!
 set nofoldenable
 
@@ -128,4 +116,4 @@ set nofoldenable
 autocmd BufWritePre * :%s/\s\+$//e
 
 "replace word under cursor
-:nnoremap ,r :%s/\<<C-r><C-w>\>//g<Left><Left>
+nnoremap ,r :%s/\<<C-r><C-w>\>//g<Left><Left>
