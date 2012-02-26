@@ -9,6 +9,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 Bundle 'tpope/vim-unimpaired'
+Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Bundle 'bufexplorer.zip'
 Bundle 'ervandew/supertab'
