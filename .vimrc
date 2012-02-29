@@ -70,6 +70,8 @@ winpos 0 0
 "show the cursor position all the time
 set ruler
 
+set guifont=Consolas:h12
+
 "display incomplete commands
 set showcmd
 
@@ -86,6 +88,9 @@ inoremap <right> <nop>
 "use C-s for saving
 noremap <C-s> :w<CR>
 inoremap <C-s> <C-O>:w<CR>
+
+nmap <silent> ,e :e $MYVIMRC<cr>
+nmap <silent> ,s :so $MYVIMRC<cr>
 
 "do not move the cursor after copy in visual mode
 vmap y y`]
@@ -116,6 +121,7 @@ set nofoldenable
 
 "remove trailin whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
+autocmd BufReadPost *.cshtml set filetype=html
 
 "replace word under cursor
 nnoremap ,r :%s/\<<C-r><C-w>\>//g<Left><Left>
