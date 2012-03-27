@@ -56,9 +56,8 @@ set expandtab
 set autoindent
 set smarttab
 
-set backupdir=~/.vim/backup
-set directory=~/.vim/backup
-
+set noswapfile
+set nobackup
 set lazyredraw
 
 "make backspace work like most other apps
