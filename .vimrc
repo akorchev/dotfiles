@@ -11,11 +11,13 @@ Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-markdown'
 Bundle 'bufexplorer.zip'
 Bundle 'ervandew/supertab'
 Bundle 'vim-scripts/JavaScript-Indent'
 Bundle 'Railscasts-Theme-GUIand256color'
 Bundle 'mileszs/ack.vim'
+Bundle 'underlog/vim-PairTools'
 
 filetype indent plugin on
 
@@ -42,7 +44,6 @@ syntax on
 
 set t_Co=256
 colorscheme railscasts
-
 "show white space
 set list listchars=tab:»·,trail:·
 
@@ -69,7 +70,6 @@ winpos 0 0
 "show the cursor position all the time
 set ruler
 
-set guifont=Consolas:h12
 
 "display incomplete commands
 set showcmd
