@@ -12,12 +12,14 @@ Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-markdown'
+Bundle 'nelstrom/vim-markdown-preview'
 Bundle 'bufexplorer.zip'
 Bundle 'ervandew/supertab'
 Bundle 'vim-scripts/JavaScript-Indent'
 Bundle 'Railscasts-Theme-GUIand256color'
 Bundle 'mileszs/ack.vim'
 Bundle 'underlog/vim-PairTools'
+Bundle 'wincent/Command-T'
 
 filetype indent plugin on
 
@@ -25,10 +27,19 @@ filetype indent plugin on
 set mouse=a
 set ttymouse=xterm2
 set ttyfast
+set lazyredraw
+
+"change leader to ,
+let mapleader = ","
+let g:mapleader = ","
 
 "BufferExplorer
-nnoremap ,b :BufExplorer<CR>
-nnoremap ,n :%s/\r//g<CR>
+nnoremap <leader>b :BufExplorer<CR>
+nnoremap <leader>n :%s/\r//g<CR>
+
+"CommandT
+nnoremap <leader>t :CommandT<CR>
+set wildignore=target/**,*.class
 
 "hide the toolbar
 set guioptions-=T
@@ -59,7 +70,6 @@ set smarttab
 
 set noswapfile
 set nobackup
-set lazyredraw
 
 "make backspace work like most other apps
 set backspace=indent,eol,start
@@ -69,7 +79,6 @@ winpos 0 0
 
 "show the cursor position all the time
 set ruler
-
 
 "display incomplete commands
 set showcmd
@@ -88,8 +97,8 @@ inoremap <right> <nop>
 noremap <C-s> :w<CR>
 inoremap <C-s> <C-O>:w<CR>
 
-nmap <silent> ,e :e $MYVIMRC<cr>
-nmap <silent> ,s :so $MYVIMRC<cr>
+nmap <silent> <leader>e :e $MYVIMRC<cr>
+nmap <silent> <leader>s :so $MYVIMRC<cr>
 
 "do not move the cursor after copy in visual mode
 vmap y y`]
