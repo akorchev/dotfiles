@@ -30,17 +30,13 @@ set ttymouse=xterm2
 set ttyfast
 set lazyredraw
 
-"change leader to ,
-let mapleader = ","
-let g:mapleader = ","
-
 "BufferExplorer
-nnoremap <leader>b :BufExplorer<CR>
-nnoremap <leader>n :%s/\r//g<CR>
+nnoremap ,b :BufExplorer<CR>
+nnoremap ,n :%s/\r//g<CR>
 
 "CommandT
-nnoremap <leader>t :CommandT<CR>
-set wildignore=target/**,*.class
+nnoremap ,t :CommandT<CR>
+set wildignore=**/target/**,*.class
 
 "hide the toolbar
 set guioptions-=T
@@ -98,8 +94,8 @@ inoremap <right> <nop>
 noremap <C-s> :w<CR>
 inoremap <C-s> <C-O>:w<CR>
 
-nmap <silent> <leader>e :e $MYVIMRC<cr>
-nmap <silent> <leader>s :so $MYVIMRC<cr>
+nmap <silent> ,e :e $MYVIMRC<cr>
+nmap <silent> ,s :so $MYVIMRC<cr>
 
 "do not move the cursor after copy in visual mode
 vmap y y`]
@@ -134,3 +130,8 @@ autocmd BufReadPost *.cshtml set filetype=html
 
 "replace word under cursor
 nnoremap ,r :%s/\<<C-r><C-w>\>//g<Left><Left>
+
+"eclim
+nnoremap ,ji :JavaImportMissing<cr>
+nnoremap ,jc :JavaCorrect<cr>
+inoremap <C-Space> <C-x><C-u>
