@@ -7,15 +7,12 @@ call vundle#rc()
 
 " let Vundle manage Vundle
 Bundle 'gmarik/vundle'
-
 Bundle 'tpope/vim-unimpaired'
-Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-markdown'
 Bundle 'vim-ruby/vim-ruby'
-Bundle 'nelstrom/vim-markdown-preview'
 Bundle 'bufexplorer.zip'
-Bundle 'ervandew/supertab'
+Bundle 'Shougo/neocomplcache'
 Bundle 'vim-scripts/JavaScript-Indent'
 Bundle 'Railscasts-Theme-GUIand256color'
 Bundle 'mileszs/ack.vim'
@@ -23,6 +20,12 @@ Bundle 'underlog/vim-PairTools'
 Bundle 'wincent/Command-T'
 
 filetype indent plugin on
+
+let g:neocomplcache_enable_at_startup = 1
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <CR>: close popup and save indent.
+inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
 
 "mouse in terminal
 set mouse=a
