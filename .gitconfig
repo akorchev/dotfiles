@@ -17,10 +17,8 @@
 [alias]
     co = checkout
     d = diff
-    pl = "!f() { git fetch; git rebase --preserve-merges origin/`git rev-parse --abbrev-ref HEAD` ; }; f"
+    pl = "!git fetch && git rebase --preserve-merges origin/`git rev-parse --abbrev-ref HEAD`"
     st = status
     qpl = log --pretty=\"%Cblue%h%Creset %Cgreen[%cr]%Creset %s\" origin/production..origin/master
     l = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset %Cblue%an%Creset' --abbrev-commit --date=relative
-    ci = commit
-    ca = commit --amend
     copy = "!git checkout production && git pull --rebase && git cherry-pick master && git push && git checkout master"
