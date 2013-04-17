@@ -17,7 +17,7 @@ Bundle 'vim-scripts/JavaScript-Indent'
 Bundle 'Railscasts-Theme-GUIand256color'
 Bundle 'mileszs/ack.vim'
 Bundle 'underlog/vim-PairTools'
-Bundle 'wincent/Command-T'
+Bundle 'kien/ctrlp.vim'
 
 filetype indent plugin on
 
@@ -37,8 +37,8 @@ set lazyredraw
 nnoremap ,b :BufExplorer<CR>
 nnoremap ,n :%s/\r//g<CR>
 
-"CommandT
-nnoremap ,t :CommandT<CR>
+"CtrlP
+nnoremap ,t :Ctrl<CR>
 set wildignore=**/target/**,*.class
 
 "hide the toolbar
@@ -97,6 +97,8 @@ inoremap <right> <nop>
 noremap <C-s> :w<CR>
 inoremap <C-s> <C-O>:w<CR>
 
+inoremap <C-Space> <C-X><C-L>
+
 nmap <silent> ,e :e $MYVIMRC<cr>
 nmap <silent> ,s :so $MYVIMRC<cr>
 
@@ -133,8 +135,3 @@ autocmd BufReadPost *.cshtml set filetype=html
 
 "replace word under cursor
 nnoremap ,r :%s/\<<C-r><C-w>\>//g<Left><Left>
-
-"eclim
-nnoremap ,ji :JavaImportMissing<cr>
-nnoremap ,jc :JavaCorrect<cr>
-inoremap <C-Space> <C-x><C-u>
