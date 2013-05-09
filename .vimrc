@@ -38,7 +38,9 @@ nnoremap ,b :BufExplorer<CR>
 nnoremap ,n :%s/\r//g<CR>
 
 "CtrlP
-nnoremap ,t :Ctrl<CR>
+nnoremap ,t :CtrlP<CR>
+let g:ctrlp_working_path_mode = 'r'
+let g:ctrlp_max_depth = 40
 set wildignore=**/target/**,*.class
 
 "hide the toolbar
