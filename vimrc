@@ -43,6 +43,9 @@ let g:ctrlp_working_path_mode = 'r'
 let g:ctrlp_max_depth = 40
 set wildignore=**/target/**,*.class
 
+"ignore case in filename completion
+set wildignorecase
+
 "hide the toolbar
 set guioptions-=T
 
