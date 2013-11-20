@@ -34,7 +34,7 @@ plugins=(git vi-mode)
 source $ZSH/oh-my-zsh.sh
 
 bindkey ^R history-incremental-search-backward
-
+unsetopt correct_all
 # Customize to your needs...
 export PATH=/home/korchev/.rbenv/bin:/home/korchev/.bin:/usr/local/bin:/home/korchev/.gem/ruby/1.9.1/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/vendor_perl:/usr/bin/core_perl
 export NODE_PATH=/usr/local/lib/node_modules:/usr/lib/node_modules:$NODE_PATH
