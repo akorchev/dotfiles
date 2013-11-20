@@ -21,4 +21,4 @@
     st = status
     qpl = log --pretty=\"%Cblue%h%Creset %Cgreen[%cr]%Creset %s\" origin/production..origin/master
     l = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset %Cblue%an%Creset' --abbrev-commit --date=relative
-    copy = "!git checkout production && git pull --rebase && git cherry-pick master && git push && git checkout master"
+    copy = "!git checkout production && git pull --rebase && git cherry-pick master -m 1 && git push && git checkout master"
