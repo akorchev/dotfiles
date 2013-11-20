@@ -140,3 +140,6 @@ autocmd BufReadPost *.cshtml set filetype=html
 
 "replace word under cursor
 nnoremap ,r :%s/\<<C-r><C-w>\>//g<Left><Left>
+
+"use ag instead of ack
+let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
