@@ -5,19 +5,30 @@ filetype off "required by Vundle
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-" let Vundle manage Vundle
+" Vundle setup
 Bundle 'gmarik/vundle'
+Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-markdown'
+Bundle 'tpope/vim-eunuch'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'bufexplorer.zip'
+Bundle 'airblade/vim-gitgutter'
 Bundle 'Shougo/neocomplcache'
 Bundle 'vim-scripts/JavaScript-Indent'
 Bundle 'Railscasts-Theme-GUIand256color'
 Bundle 'mileszs/ack.vim'
 Bundle 'underlog/vim-PairTools'
 Bundle 'kien/ctrlp.vim'
+Bundle 'mattn/emmet-vim'
+Bundle 'bling/vim-airline'
+let g:airline_enable_fugitive=1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts=1
+let g:airline_theme='solarized'
+
+let g:user_emmet_mode='a'
 
 filetype indent plugin on
 
@@ -36,6 +47,10 @@ set lazyredraw
 "BufferExplorer
 nnoremap ,b :BufExplorer<CR>
 nnoremap ,n :%s/\r//g<CR>
+
+nnoremap <silent> <C-TAB> :bn<CR>
+nnoremap <silent> <C-S-TAB> :bp<CR>
+
 
 "CtrlP
 nnoremap ,t :CtrlP<CR>
@@ -112,6 +127,16 @@ vmap y y`]
 
 "completion
 set completeopt=longest,menuone
+
+" gui options
+if has("gui_gtk2")
+    set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 11
+elseif has("gui_macvim")
+    set guifont=Consolas:h12
+elseif has("gui_win32")
+    set guifont=Consolas:h11
+end
+set anti
 
 "searching
 set ignorecase
