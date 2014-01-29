@@ -23,12 +23,14 @@ Bundle 'underlog/vim-PairTools'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mattn/emmet-vim'
 Bundle 'bling/vim-airline'
+Bundle 'chriskempson/base16-vim'
 let g:airline_enable_fugitive=1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts=1
 let g:airline_theme='solarized'
 
 let g:user_emmet_mode='a'
+let user_emmet_expandabbr_key='<C-Y>'
 
 filetype indent plugin on
 
@@ -49,8 +51,11 @@ nnoremap ,b :BufExplorer<CR>
 nnoremap ,n :%s/\r//g<CR>
 
 nnoremap <silent> <C-TAB> :bn<CR>
+nnoremap <silent> <C-W> :bd<CR>
 nnoremap <silent> <C-S-TAB> :bp<CR>
-
+inoremap <silent> <C-TAB> <ESC>:bn<CR>
+inoremap <silent> <C-S-TAB> <ESC>:bp<CR>
+inoremap <silent> <C-W> <ESC>:bd<CR>
 
 "CtrlP
 nnoremap ,t :CtrlP<CR>
@@ -74,7 +79,8 @@ set number
 syntax on
 
 set t_Co=256
-colorscheme railscasts
+set background=dark
+colorscheme base16-monokai
 "show white space
 set list listchars=tab:»·,trail:·
 
