@@ -1,0 +1,233 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Genetic Algorithm</title>
+    </head>
+    <body>
+        <script>
+            function Population(populationSize, initialise) {
+                this.individuals = new Array(populationSize);
+
+                if (initialise) {
+                    // Loop and create individuals
+                    for (var i = 0; i < populationSize; i++) {
+                        var newIndividual = new Individual();
+                        newIndividual.generateIndividual();
+                        this.saveIndividual(i, newIndividual);
+                    }
+                }
+            }
+
+            Population.prototype = {
+                getIndividual: function(index) {
+                    return this.individuals[index];
+                },
+
+                getFittest: function() {
+                    var fittest = this.individuals[0];
+                    // Loop through individuals to find fittest
+                    for (var i = 0; i < this.size(); i++) {
+                        if (fittest.getFitness() <= this.getIndividual(i).getFitness()) {
+                            fittest = this.getIndividual(i);
+                        }
+                    }
+                    return fittest;
+                },
+
+                /* Public methods */
+                // Get population size
+                size: function() {
+                    return this.individuals.length;
+                },
+
+                // Save individual
+                saveIndividual: function(index, indiv) {
+                    this.individuals[index] = indiv;
+                }
+            };
+
+            function Individual() {
+                this.genes = new Array(64); // default gene length
+                this.fitness = 0;
+            }
+
+            Individual.prototype = {
+                generateIndividual: function() {
+                    for (var i = 0; i < this.genes.length; i++) {
+                        var gene = Math.round(Math.random());
+                        this.genes[i] = gene;
+                    }
+                },
+                getGene: function(index) {
+                    return this.genes[index];
+                },
+
+                setGene: function(index, value) {
+                    this.genes[index] = value;
+                    this.fitness = 0;
+                },
+
+                /* Public methods */
+                size: function() {
+                    return this.genes.length;
+                },
+
+                getFitness: function() {
+                    if (this.fitness == 0) {
+                        this.fitness = fitnessCalc.getFitness(this);
+                    }
+                    return this.fitness;
+                },
+
+                toString: function() {
+                    var geneString = "";
+                    for (var i = 0; i < this.genes.length; i++) {
+                        geneString += this.getGene(i);
+                    }
+                    return geneString;
+                }
+            };
+
+            function Algorithm() {
+                this.uniformRate = 0.5;
+                this.mutationRate = 0.015;
+                this.tournamentSize = 5;
+                this.elitism = true;
+            }
+
+            Algorithm.prototype = {
+                evolvePopulation: function(pop) {
+                    var newPopulation = new Population(pop.size(), false);
+
+                    // Keep our best individual
+                    if (this.elitism) {
+                        newPopulation.saveIndividual(0, pop.getFittest());
+                    }
+
+                    // Crossover population
+                    var elitismOffset;
+
+                    if (this.elitism) {
+                        elitismOffset = 1;
+                    } else {
+                        elitismOffset = 0;
+                    }
+
+                    // Loop over the population size and create new individuals with
+                    // crossover
+                    for (var i = elitismOffset; i < pop.size(); i++) {
+                        var indiv1 = this.tournamentSelection(pop);
+                        var indiv2 = this.tournamentSelection(pop);
+                        var newIndiv = this.crossover(indiv1, indiv2);
+                        newPopulation.saveIndividual(i, newIndiv);
+                    }
+
+                    // Mutate population
+                    for (var i = elitismOffset; i < newPopulation.size(); i++) {
+                        this.mutate(newPopulation.getIndividual(i));
+                    }
+
+                    return newPopulation;
+                },
+                crossover: function(indiv1, indiv2) {
+                    var newSol = new Individual();
+                    // Loop through genes
+                    for (var i = 0; i < indiv1.size(); i++) {
+                        // Crossover
+                        if (Math.random() <= this.uniformRate) {
+                            newSol.setGene(i, indiv1.getGene(i));
+                        } else {
+                            newSol.setGene(i, indiv2.getGene(i));
+                        }
+                    }
+
+                    return newSol;
+                },
+                mutate: function(indiv) {
+                    // Loop through genes
+                    for (var i = 0; i < indiv.size(); i++) {
+                        if (Math.random() <= this.mutationRate) {
+                            // Create random gene
+                            var gene = Math.round(Math.random());
+                            indiv.setGene(i, gene);
+                        }
+                    }
+                },
+                tournamentSelection: function(pop) {
+                    // Create a tournament population
+                    var tournament = new Population(this.tournamentSize, false);
+                    // For each place in the tournament get a random individual
+                    for (var i = 0; i < this.tournamentSize; i++) {
+                        var randomId = Math.floor(Math.random() * pop.size());
+
+                        tournament.saveIndividual(i, pop.getIndividual(randomId));
+                    }
+                    // Get the fittest
+                    var fittest = tournament.getFittest();
+                    return fittest;
+                }
+            };
+
+            function FitnessCalc() {
+                this.solution = new Array(64);
+            }
+
+            FitnessCalc.prototype = {
+                // Set a candidate solution as a byte array
+                setSolution: function(newSolution) {
+                    if (typeof newSolution == "string") {
+                        this.solution = new Array(newSolution.length);
+                        for (var i = 0; i < newSolution.length; i++) {
+                            var character = newSolution[i];
+                            if (character == "0") {
+                                this.solution[i] = 0;
+                            } else {
+                                this.solution[i] = 1;
+                            }
+                        }
+                    } else {
+                        this.solution = newSolution;
+                    }
+                },
+                getFitness: function(individual) {
+                    var fitness = 0;
+                    // Loop through our individuals genes and compare them to our cadidates
+                    for (var i = 0; i < individual.size() && i < this.solution.length; i++) {
+                        if (individual.getGene(i) == this.solution[i]) {
+                            fitness++;
+                        }
+                    }
+                    return fitness;
+                },
+                getMaxFitness: function() {
+                    var maxFitness = this.solution.length;
+                    return maxFitness;
+                }
+            };
+
+            var fitnessCalc = new FitnessCalc();
+            var algorithm = new Algorithm();
+
+            // Set a candidate solution
+            fitnessCalc.setSolution("1111000000000000000000000000000000000000000000000000000000001111");
+
+            // Create an initial population
+            var myPop = new Population(50, true);
+
+            // Evolve our population until we reach an optimum solution
+            var generationCount = 0;
+            while (myPop.getFittest().getFitness() < fitnessCalc.getMaxFitness()) {
+                generationCount++;
+                console.log("Generation: " + generationCount + " Fittest: " + myPop.getFittest().getFitness());
+                myPop = algorithm.evolvePopulation(myPop);
+            }
+
+            console.log("Solution found!");
+            console.log("Generation: " + generationCount);
+            console.log("Genes:");
+            console.log(myPop.getFittest().toString());
+
+        </script>
+
+    </body>
+</html>
