@@ -4,6 +4,7 @@
     branch = auto
 [core]
     whitespace = cr-at-eol
+	editor = vim
 [diff]
     tool = meld
 [http]
@@ -26,6 +27,7 @@
   #############################
   # public/private mirrors aliases
   #############################
+  pl = "!git fetch --prune && git rebase --preserve-merges `git rev-parse --abbrev-ref --symbolic-full-name @{u}`"
 
   # Bring alias from public repo to private
   put-in-master = "!git checkout master && git pull --rebase && git cherry-pick core/master && git push && git checkout core-master"

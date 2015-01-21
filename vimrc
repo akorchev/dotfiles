@@ -51,11 +51,9 @@ nnoremap ,b :BufExplorer<CR>
 nnoremap ,n :%s/\r//g<CR>
 
 nnoremap <silent> <C-TAB> :bn<CR>
-nnoremap <silent> <C-W> :bd<CR>
 nnoremap <silent> <C-S-TAB> :bp<CR>
 inoremap <silent> <C-TAB> <ESC>:bn<CR>
 inoremap <silent> <C-S-TAB> <ESC>:bp<CR>
-inoremap <silent> <C-W> <ESC>:bd<CR>
 
 "CtrlP
 nnoremap ,t :CtrlP<CR>
