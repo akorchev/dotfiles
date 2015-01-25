@@ -24,6 +24,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'mattn/emmet-vim'
 Bundle 'bling/vim-airline'
 Bundle 'chriskempson/base16-vim'
+
 let g:airline_enable_fugitive=1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts=1
@@ -61,8 +62,12 @@ let g:ctrlp_working_path_mode = 'r'
 let g:ctrlp_max_depth = 40
 set wildignore=**/target/**,*.class
 
+if has('gui_running')
+
 "ignore case in filename completion
 set wildignorecase
+
+end
 
 "hide the toolbar
 set guioptions-=T
