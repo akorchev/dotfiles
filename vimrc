@@ -24,6 +24,8 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'mattn/emmet-vim'
 Bundle 'bling/vim-airline'
 Bundle 'chriskempson/base16-vim'
+Bundle 'leafgarland/typescript-vim'
+Bundle 'jason0x43/vim-js-indent'
 
 let g:airline_enable_fugitive=1
 let g:airline#extensions#tabline#enabled = 1
@@ -88,9 +90,9 @@ colorscheme base16-monokai
 set list listchars=tab:»·,trail:·
 
 "tabs
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 
 "indentation
