@@ -2,30 +2,30 @@ set nocompatible
 
 filetype off "required by Vundle
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " Vundle setup
-Bundle 'gmarik/vundle'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-eunuch'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'bufexplorer.zip'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'Shougo/neocomplcache'
-Bundle 'vim-scripts/JavaScript-Indent'
-Bundle 'Railscasts-Theme-GUIand256color'
-Bundle 'mileszs/ack.vim'
-Bundle 'underlog/vim-PairTools'
-Bundle 'kien/ctrlp.vim'
-Bundle 'mattn/emmet-vim'
-Bundle 'bling/vim-airline'
-Bundle 'chriskempson/base16-vim'
-Bundle 'leafgarland/typescript-vim'
-Bundle 'jason0x43/vim-js-indent'
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-eunuch'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'bufexplorer.zip'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'Shougo/neocomplcache'
+Plugin 'vim-scripts/JavaScript-Indent'
+Plugin 'Railscasts-Theme-GUIand256color'
+Plugin 'mileszs/ack.vim'
+Plugin 'underlog/vim-PairTools'
+Plugin 'kien/ctrlp.vim'
+Plugin 'mattn/emmet-vim'
+Plugin 'bling/vim-airline'
+Plugin 'chriskempson/base16-vim'
+Plugin 'leafgarland/typescript-vim'
+call vundle#end()
 
 let g:airline_enable_fugitive=1
 let g:airline#extensions#tabline#enabled = 1
