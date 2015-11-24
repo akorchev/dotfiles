@@ -29,6 +29,8 @@ Plugin 'othree/yajs.vim'
 Plugin 'mxw/vim-jsx'
 call vundle#end()
 
+let g:jsx_ext_required = 0
+
 let g:airline_enable_fugitive=1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts=1
