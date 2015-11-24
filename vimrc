@@ -16,7 +16,6 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'bufexplorer.zip'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Shougo/neocomplcache'
-Plugin 'vim-scripts/JavaScript-Indent'
 Plugin 'Railscasts-Theme-GUIand256color'
 Plugin 'mileszs/ack.vim'
 Plugin 'underlog/vim-PairTools'
@@ -25,6 +24,9 @@ Plugin 'mattn/emmet-vim'
 Plugin 'bling/vim-airline'
 Plugin 'chriskempson/base16-vim'
 Plugin 'leafgarland/typescript-vim'
+Plugin 'jason0x43/vim-js-indent'
+Plugin 'othree/yajs.vim'
+Plugin 'mxw/vim-jsx'
 call vundle#end()
 
 let g:airline_enable_fugitive=1
