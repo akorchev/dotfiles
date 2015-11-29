@@ -15,12 +15,11 @@ Plugin 'tpope/vim-eunuch'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'bufexplorer.zip'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'Shougo/neocomplcache'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'Railscasts-Theme-GUIand256color'
 Plugin 'mileszs/ack.vim'
 Plugin 'underlog/vim-PairTools'
 Plugin 'kien/ctrlp.vim'
-Plugin 'mattn/emmet-vim'
 Plugin 'bling/vim-airline'
 Plugin 'chriskempson/base16-vim'
 Plugin 'scrooloose/syntastic'
@@ -38,7 +37,6 @@ call vundle#end()
 let g:syntastic_error_symbol = "✗"
 let g:syntastic_warning_symbol = "⚠"
 
-
 let g:syntastic_javascript_checkers = ["eslint"]
 let g:syntastic_javascript_eslint_exec = 'eslint_d'
 
@@ -55,16 +53,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts=1
 let g:airline_theme='solarized'
 
-let g:user_emmet_mode='a'
-let user_emmet_expandabbr_key='<C-Y>'
-
 filetype indent plugin on
-
-let g:neocomplcache_enable_at_startup = 1
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <CR>: close popup and save indent.
-inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
 
 "mouse in terminal
 set mouse=a
