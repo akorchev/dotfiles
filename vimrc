@@ -159,7 +159,7 @@ set completeopt=longest,menuone
 if has("gui_gtk2")
     set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 11
 elseif has("gui_macvim")
-    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h12
+    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h16
 elseif has("gui_win32")
     set guifont=Consolas:h11
 end
