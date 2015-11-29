@@ -23,11 +23,23 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'bling/vim-airline'
 Plugin 'chriskempson/base16-vim'
+Plugin 'scrooloose/syntastic'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'jason0x43/vim-js-indent'
 Plugin 'othree/yajs.vim'
 Plugin 'mxw/vim-jsx'
 call vundle#end()
+
+let g:syntastic_error_symbol = "âœ—"
+let g:syntastic_warning_symbol = "âš "
+
+
+let g:syntastic_javascript_checkers = ["eslint"]
+let g:syntastic_javascript_eslint_exec = 'eslint_d'
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
 
 let g:jsx_ext_required = 0
 
@@ -91,7 +103,7 @@ set t_Co=256
 set background=dark
 colorscheme base16-monokai
 "show white space
-set list listchars=tab:»·,trail:·
+set list listchars=tab:Â»Â·,trail:Â·
 
 "tabs
 set tabstop=2
