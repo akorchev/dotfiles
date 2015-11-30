@@ -24,9 +24,9 @@ Plugin 'bling/vim-airline'
 Plugin 'chriskempson/base16-vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'leafgarland/typescript-vim'
-Plugin 'jason0x43/vim-js-indent'
+Plugin 'pangloss/vim-javascript'
 Plugin 'othree/yajs.vim'
-Bundle 'elzr/vim-json'
+Plugin 'elzr/vim-json'
 
 "Disable fancy concealing of attribute quotes.
 let g:vim_json_syntax_conceal = 0
