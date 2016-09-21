@@ -15,6 +15,7 @@
     email = akorchev@gmail.com
 [push]
     default = tracking
+	followTags = true
 [alias]
     co = checkout
     d = diff
