@@ -15,18 +15,23 @@ Plugin 'tpope/vim-eunuch'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'bufexplorer.zip'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'Railscasts-Theme-GUIand256color'
 Plugin 'mileszs/ack.vim'
 Plugin 'underlog/vim-PairTools'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'kien/ctrlp.vim'
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'chriskempson/base16-vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'pangloss/vim-javascript'
+Plugin 'briancollins/vim-jst'
+Plugin 'Glench/Vim-Jinja2-Syntax'
 Plugin 'othree/yajs.vim'
 Plugin 'elzr/vim-json'
+Plugin 'othree/html5.vim'
+Plugin 'editorconfig/editorconfig-vim'
 
 "Disable fancy concealing of attribute quotes.
 let g:vim_json_syntax_conceal = 0
@@ -40,6 +45,7 @@ let g:syntastic_warning_symbol = "⚠"
 let g:syntastic_javascript_checkers = ["eslint"]
 let g:syntastic_javascript_eslint_exec = 'eslint_d'
 
+let g:syntastic_typescript_tsc_fname = ''
 let g:syntastic_json_checkers=["jsonlint"]
 
 let g:syntastic_always_populate_loc_list = 1
@@ -74,7 +80,7 @@ inoremap <silent> <C-S-TAB> <ESC>:bp<CR>
 nnoremap ,t :CtrlP<CR>
 let g:ctrlp_working_path_mode = 'r'
 let g:ctrlp_max_depth = 40
-set wildignore=**/target/**,*.class
+set wildignore=**/node_modules/**
 
 if has('gui_running')
 
@@ -155,7 +161,8 @@ set completeopt=longest,menuone
 if has("gui_gtk2")
     set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 11
 elseif has("gui_macvim")
-    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h16
+    set macligatures
+    set guifont=Fira\ Code:h16
 elseif has("gui_win32")
     set guifont=Consolas:h11
 end
@@ -185,9 +192,7 @@ set nofoldenable
 "remove trailin whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 autocmd BufReadPost *.cshtml set filetype=html
+autocmd BufReadPost *.tpl set filetype=jinja
 
 "replace word under cursor
 nnoremap ,r :%s/\<<C-r><C-w>\>//g<Left><Left>
-
-"use ag instead of ack
-let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
